@@ -5,7 +5,7 @@
 
 
 fn main() {
-    let x:i64 = 10;
+    let x:i32 = 10 as i32;
     if x == 10 {
         println!("x is ten!");
     } else {

@@ -5,7 +5,7 @@
 
 
 fn main() {
-    let x:u8 = 10;
+    let x:i64 = 10;
     if x == 10 {
         println!("x is ten!");
     } else {

@@ -5,8 +5,8 @@
 
 
 fn main() {
-    let x:i32 = 10 as i32;
-    if x == 10 as i32 {
+    let x: i32 = 10; // 添加类型注解
+    if x == 10 {
         println!("x is ten!");
     } else {
         println!("x is not ten!");

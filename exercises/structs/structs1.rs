@@ -11,12 +11,13 @@ struct ColorClassicStruct {
     green: i32,
     blue: i32,
 }
+//经典的声明结构体
 
 struct ColorTupleStruct(
     i32,
     i32,
     i32,
-);
+);//元祖结构体
 
 #[derive(Debug)]
 struct UnitLikeStruct;
@@ -34,7 +35,7 @@ mod tests {
                 green: 255,
                 blue: 0,
             }
-        };
+        };//结构体的赋值
 
         assert_eq!(green.red, 0);
         assert_eq!(green.green, 255);
@@ -46,7 +47,7 @@ mod tests {
         // TODO: Instantiate a tuple struct!
         let green = {
             ColorTupleStruct(0, 255, 0)
-        }
+        }//元组结构体的赋值
         ;
 
         assert_eq!(green.0, 0);

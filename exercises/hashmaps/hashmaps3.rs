@@ -47,14 +47,33 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
             goals_scored: 0,
             goals_conceded: 0,
         });
-
-        let team_1 = scores.get_mut(&team_1_name).unwrap();
+        /* let team_1 = scores.get_mut(&team_1_name).unwrap();
         team_1.goals_scored += team_1_score;
         team_1.goals_conceded += team_2_score;
 
         let team_2 = scores.get_mut(&team_2_name).unwrap();
         team_2.goals_scored += team_2_score;
-        team_2.goals_conceded += team_1_score;
+        team_2.goals_conceded += team_1_score;*/
+          scores.entry(team_1_name.clone())
+            .and_modify(|team| {//and_modify方法用于修改已经存在的键值对
+                team.goals_scored += team_1_score;
+                team.goals_conceded += team_2_score;
+            })
+            .or_insert(Team {
+                goals_scored: team_1_score,
+                goals_conceded: team_2_score,
+            });
+
+        // 更新 team_2 的数据
+        scores.entry(team_2_name.clone())
+            .and_modify(|team| {
+                team.goals_scored += team_2_score;
+                team.goals_conceded += team_1_score;
+            })
+            .or_insert(Team {
+                goals_scored: team_2_score,
+                goals_conceded: team_1_score,
+            });
             
     }
     scores

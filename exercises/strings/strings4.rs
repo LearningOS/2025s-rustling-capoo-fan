@@ -17,14 +17,14 @@ fn string(arg: String) {
 }
 
 fn main() {
-    string_slice("blue");
+    string_slice("blue");//切片类型返回str
     string("red".to_string());
     string(String::from("hi"));
-    string("rust is fun!".to_owned());
+    string("rust is fun!".to_owned());//与to_string和string::from等价
     string_slice("nice weather".into());
-    string(format!("Interpolation {}", "Station"));
-    string_slice(&String::from("abc")[0..1]);
-    string_slice("  hello there ".trim());
-    string("Happy Monday!".to_string().replace("Mon", "Tues"));
-    string("mY sHiFt KeY iS sTiCkY".to_lowercase());
+    string(format!("Interpolation {}", "Station"));//格式化字符串，返回String
+    string_slice(&String::from("abc")[0..1]);//切片，返回str
+    string_slice("  hello there ".trim());//trim()返回str，去除首尾空格
+    string("Happy Monday!".to_string().replace("Mon", "Tues"));//replace()返回String
+    string("mY sHiFt KeY iS sTiCkY".to_lowercase());//返回String
 }

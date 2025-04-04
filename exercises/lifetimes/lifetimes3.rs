@@ -5,12 +5,12 @@
 // Execute `rustlings hint lifetimes3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
-struct Book {
-    author: &str,
-    title: &str,
-}
+
+struct Book<'a> {
+    author: &'a str,
+    title: &'a str,
+}//结构体中的引用也需要生命周期标注
 
 fn main() {
     let name = String::from("Jill Smith");

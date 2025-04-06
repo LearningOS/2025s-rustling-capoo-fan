@@ -12,16 +12,8 @@ fn main() {
         .unwrap()
         .as_secs(); // What's the use of this timestamp here?
     println!("cargo:rustc-env=TEST_FOO={}", timestamp);
-
-    let your_command =
-        format!("Your command here with {}, please checkout exercises/tests/build.rs", timestamp);
-    println!("cargo:{}", your_command);
     println!("cargo:example-key=example-value");
-    println!("cargo:rustc-cfg=feature=\"pass\"");
-    // In tests8, we should enable "pass" feature to make the
-    // testcase return early. Fill in the command to tell
-    // Cargo about that.
-    let your_command = "Your command here, please checkout exercises/tests/build.rs";
 
-    println!("cargo:{}", your_command);
+    // In tests8, we enable the "pass" feature to make the testcase return early.
+    println!("cargo:rustc-cfg=feature=\"pass\"");
 }
